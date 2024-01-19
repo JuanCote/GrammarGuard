@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextCheck Pro</title>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to TextCheck Pro</h1>
+    </header>
+
+    <main>
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            {{ text_form.text }}
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+</html>
