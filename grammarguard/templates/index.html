@@ -1,22 +1,33 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TextCheck Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>GrammarGuard</title>
 </head>
-<body>
+<body class="bg-[#7cc1ac]">
 
-    <header>
-        <h1>Welcome to TextCheck Pro</h1>
+    <header class='flex justify-center mt-[4rem]'>
+        <h1 class="text-4xl font-semibold text-white">Welcome to GrammarGuard</h1>
     </header>
 
-    <main>
-        <form action="{% url 'index' %}" method="post">
-            {% csrf_token %}
-            {{ text_form.text }}
-            <input type="submit" value="Submit">
-        </form>
+    <main class="w-[1100px] mx-auto">
+        <div class="mt-[1rem]">
+            <h1 class="text-2xl font-semibold mb-[0.5rem] text-white">Your analysed text:</h1>
+            <form action="{% url 'analysis_results' %}" method="post">
+                <div class="flex flex-col">
+                    {% csrf_token %}
+                    {{ text_form.text }}
+                    <input type="submit" class="mt-[1rem] w-[10rem] h-[3rem] rounded-full bg-[#e8a87c] ease-out duration-300 hover:scale-[1.05] hover:bg-[#e27d5f] text-lg font-semibold mx-auto cursor-pointer" value="Analyze">
+                </div>
+            </form>
+        </div>
+        <div class="mt-[1rem]"> 
+            {% block content %} {% endblock %}
+        </div>
     </main>
 
     <footer>
