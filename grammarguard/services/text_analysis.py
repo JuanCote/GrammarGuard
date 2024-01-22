@@ -1,3 +1,6 @@
+from .spellchecker import spelling_check
+
+
 def analyze_text(text: str) -> dict:
     analysis_result = {
         "words_count": count_words(text),
@@ -5,6 +8,8 @@ def analyze_text(text: str) -> dict:
         "characters_count": len(text),
         "characters_count_without_space": len([x for x in text if x != " "]),
         "sentences": sentences_count(text),
+        "original_text": text,
+        "highlighted_text": spelling_check(text),
     }
     return analysis_result
 

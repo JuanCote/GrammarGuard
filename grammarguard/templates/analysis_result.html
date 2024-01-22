@@ -1,27 +1,31 @@
 {% extends "index.html" %}
+{% load static %}
 {% block content %}
 
-<div class="flex justify-center">
-    <div class="">
-        <table class="border-separate text-white font-semibold border-spacing-2 border border-4 border-[#e5a87d]">
-            <tr>
-                <td>Number of words:</td>
-                <td class='font-semibold'>{{ analysis_result.words_count }}</td>
-            </tr>
-            <tr>
-                <td>Number of sentences:</td>
-                <td class='font-semibold'>{{ analysis_result.sentences }}</td>
-            </tr>
-            <tr>
-                <td>Number of characters:</td>
-                <td class='font-semibold'>{{ analysis_result.characters_count }}</td>
-            </tr>
-            <tr>
-                <td>Number of characters without spaces:</td>
-                <td class='font-semibold'>{{ analysis_result.characters_count_without_space }}</td>
-            </tr>
-        </table>
+<div class="mt-[1rem]"> 
+    <div class="flex justify-center">
+        <div class="">
+            <table class="border-separate text-white font-semibold border-spacing-2 border border-4 border-[#e5a87d]">
+                <tr>
+                    <td>Number of words:</td>
+                    <td class='font-semibold'>{{ analysis_result.words_count }}</td>
+                </tr>
+                <tr>
+                    <td>Number of sentences:</td>
+                    <td class='font-semibold'>{{ analysis_result.sentences }}</td>
+                </tr>
+                <tr>
+                    <td>Number of characters:</td>
+                    <td class='font-semibold'>{{ analysis_result.characters_count }}</td>
+                </tr>
+                <tr>
+                    <td>Number of characters without spaces:</td>
+                    <td class='font-semibold'>{{ analysis_result.characters_count_without_space }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
+    {{ analysis_result.highlighted_text | safe }}
 </div>
-
+<script type="text/javascript" src="{% static 'js/analysis_result.js' %}"></script>
 {% endblock content %}
