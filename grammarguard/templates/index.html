@@ -8,12 +8,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>GrammarGuard</title>
 </head>
-<body class="bg-[#7cc1ac]">
-
-    <header class='flex justify-center mt-[4rem]'>
+<body class="py-[4rem] bg-gradient-to-b from-gray-900 via-[#300171] to-slate-900">
+    <div class="absolute w-full -z-10 h-full p-[4rem] opacity-[5%] bg-[url({% static 'images/background-pattern.svg' %})]"></div>
+        <header class='flex justify-center'>
         <h1 class="text-xl min-[310px]:text-2xl sm:text-3xl md:text-4xl font-semibold text-white">Welcome to GrammarGuard</h1>
     </header>
-
     <main class="max-w-[1120px] px-[20px] mx-auto">
         <div class="mt-[1rem]">
             <h1 class="text-2xl font-semibold mb-[0.5rem] text-white">Your analysed text:</h1>
@@ -21,9 +20,9 @@
                 <div class="flex flex-col">
                     {% csrf_token %}
                     {% if analysis_result %}
-                        <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#ebecf5] font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-gray-400 w-full p-3 outline-4 focus:outline-[#c38d9d]">{{ analysis_result.original_text }}</textarea>
+                        <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">{{ analysis_result.original_text }}</textarea>
                     {% else %}
-                        <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#ebecf5] font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-gray-400 w-full p-3 outline-4 focus:outline-[#c38d9d]"></textarea>
+                        <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]"></textarea>
                     {% endif %}
                     {% if analysis_result %}
                         <div class="mt-[0.5rem] flex justify-between mb-[1rem]">
@@ -37,9 +36,7 @@
         </div>
         {% block content %} {% endblock %}
     </main>
-
     <footer>
     </footer>
-
 </body>
 </html>
