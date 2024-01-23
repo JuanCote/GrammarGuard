@@ -19,6 +19,8 @@
             <form action="{% url 'analysis_results' %}" method="post">
                 <div class="flex flex-col">
                     {% csrf_token %}
+                    
+                    <p id="tooltip" class="leading-[2.5rem] transition-opacity ease-out duration-300 opacity-0 absolute text-[#49d57d] h-[2.5rem] px-[10px] font-semibold flex items-center justify-center bg-[#3f1f71] rounded-xl hidden"></p>
                     {% if analysis_result %}
                         <div contenteditable="true" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">{{ analysis_result.highlighted_text | safe }}</div>
                     {% else %}

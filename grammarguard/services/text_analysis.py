@@ -27,6 +27,5 @@ def letter_count(text: str) -> int:
 def sentences_count(text: str) -> int:
     text = text.replace("!", ".").replace("?", ".")
     senteces = text.split(".")
-    while "" in senteces:
-        senteces.remove("")
-    return len(senteces)
+    filtered_sentences = [item for item in senteces if item.strip()]
+    return len(filtered_sentences)
