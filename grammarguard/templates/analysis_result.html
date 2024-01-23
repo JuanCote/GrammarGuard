@@ -3,26 +3,39 @@
 {% block content %}
 
 <div class="mt-[1rem]"> 
-    <div class="flex justify-center">
-        <div class="">
-            <table class="border-separate text-white font-semibold border-spacing-2 border border-4 border-[#e5a87d]">
-                <tr>
-                    <td>Number of words:</td>
-                    <td class='font-semibold'>{{ analysis_result.words_count }}</td>
-                </tr>
-                <tr>
-                    <td>Number of sentences:</td>
-                    <td class='font-semibold'>{{ analysis_result.sentences }}</td>
-                </tr>
-                <tr>
-                    <td>Number of characters:</td>
-                    <td class='font-semibold'>{{ analysis_result.characters_count }}</td>
-                </tr>
-                <tr>
-                    <td>Number of characters without spaces:</td>
-                    <td class='font-semibold'>{{ analysis_result.characters_count_without_space }}</td>
-                </tr>
-            </table>
+    <div class="grid grid-cols-4 gap-8 mt-[1rem]">
+        <div class="rounded-xl overflow-hidden border border-[#6545a3]">
+            <div class="h-[3rem] flex items-center justify-center text-[#c3b4fc] text-xl font-semibold bg-[#a973fa]/20">
+                Word Count
+            </div>
+            <div class="h-[6rem] text-4xl font-semibold text-[#c3b4fc] flex items-center justify-center bg-[#6b4e9c]/20">
+                {{ analysis_result.words_count }}
+            </div>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-[#6545a3]">
+            <div class="h-[3rem] flex items-center justify-center text-[#c3b4fc] text-xl font-semibold bg-[#a973fa]/20">
+                Sentence Count
+            </div>
+            <div class="h-[6rem] text-4xl font-semibold text-[#c3b4fc] flex items-center justify-center bg-[#6b4e9c]/20">
+                {{ analysis_result.sentences }}
+            </div>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-[#6545a3]">
+            <div class="h-[3rem] flex items-center justify-center text-[#c3b4fc] text-xl font-semibold bg-[#a973fa]/20">
+                Characters Count
+            </div>
+            <div class="h-[6rem] text-4xl font-semibold text-[#c3b4fc] flex items-center justify-center bg-[#6b4e9c]/20">
+                {{ analysis_result.characters_count }}
+            </div>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-[#6545a3]">
+            <div class="h-[3rem] flex flex-col items-center justify-center text-[#c3b4fc] text-base font-semibold bg-[#a973fa]/20">
+                Number of Characters
+                <p class="text-sm mt-0">(without spaces)</p>
+            </div>
+            <div class="h-[6rem] text-4xl font-semibold text-[#c3b4fc] flex items-center justify-center bg-[#6b4e9c]/20">
+                {{ analysis_result.characters_count_without_space }}
+            </div>
         </div>
     </div>
 </div>
