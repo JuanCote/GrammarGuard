@@ -1,4 +1,4 @@
-from .spellchecker import spelling_check
+from .spellchecker import count_word_frequency, spelling_check
 
 
 def analyze_text(text: str) -> dict:
@@ -10,6 +10,7 @@ def analyze_text(text: str) -> dict:
         "sentences": sentences_count(text),
         "original_text": text,
         "highlighted_text": spelling_check(text),
+        "word_frequency": count_word_frequency(text),
     }
     return analysis_result
 

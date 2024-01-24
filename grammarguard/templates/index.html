@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "css/scrollbar.css" %}" />
     <title>GrammarGuard</title>
 </head>
 <body class="h-[70rem] pt-[10rem] bg-gradient-to-b from-gray-900 to-[#300171]">
@@ -23,15 +24,16 @@
                     <p id="tooltip" class="leading-[2.5rem] transition-opacity ease-out duration-300 opacity-0 absolute text-[#49d57d] h-[2.5rem] px-[10px] font-semibold flex items-center justify-center bg-[#3f1f71] rounded-xl hidden"></p>
                     {% if analysis_result %}
                         <div contenteditable="true" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">{{ analysis_result.highlighted_text | safe }}</div>
-                    {% else %}
-                        <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]"></textarea>
-                    {% endif %}
-                    {% if analysis_result %}
                         <div class="mt-[0.5rem] flex justify-between mb-[1rem]">
                             <a href="/"><h2 class="text-[#e8ddff] easy-in duration-300 hover:scale-[1.1] text-lg font-bold cursor-pointer underline">Clear Text</h2></a>
                             <p class="text-white text-lg font-semibold">{{ analysis_result.words_count }} words</p>
                         </div>
                     {% else %}
+                        <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">Try the tool out with this paragraph of text here, by pressing Analyse below. Or you can replace this whole text with some text of your choosing. Simply paste any text into this box, or else type it in yourself! 
+
+Text Inspector gives you different scores for Writing texts (student writing) and Reading and Listening texts (e.g. texts designed for classroom reading or listening). The default mode is Writing, so if your text is for Reading or Listening, please go to Analyse on the top menu to change the mode and get accurate calcula
+
+Look at our Subscriptions section for special offers and discounts.</textarea>
                         <input type="submit" class="text-[#243046] mt-[1rem] w-[10rem] h-[3rem] rounded-full bg-[#e8ddff] ease-out duration-300 hover:scale-[1.05] hover:bg-[#6666ff] hover:text-white text-xl font-semibold mx-auto cursor-pointer" value="Analyze">
                     {% endif %}
                 </div>

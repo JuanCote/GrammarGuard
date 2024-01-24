@@ -18,3 +18,17 @@ def spelling_check(text: str) -> str:
 def remove_nonletters(word: str) -> str:
     translator = str.maketrans("", "", string.punctuation)
     return word.translate(translator)
+
+
+def count_word_frequency(text: str) -> dict:
+    spell = SpellChecker()
+    words = spell.split_words(text)
+    result = dict()
+    for word in words:
+        word = word.lower()
+        if word not in result:
+            result[word] = 1
+        else:
+            result[word] += 1
+    result = dict(sorted(result.items(), key=lambda x: x[1], reverse=True))
+    return result

@@ -37,6 +37,16 @@
                 {{ analysis_result.characters_count_without_space }}
             </div>
         </div>
+        <div class="rounded-xl overflow-hidden border border-[#6545a3]">
+            <div class="h-[3rem] flex flex-col items-center justify-center text-[#c3b4fc] text-xl font-semibold bg-[#a973fa]/20">
+                Word Frequency
+            </div>
+            <ul id="scrollUl" class="bg-[#6b4e9c]/20 h-[6rem] overflow-auto text-lg font-semibold text-[#c3b4fc] flex flex-col items-center">
+                {% for key, value in analysis_result.word_frequency.items %}
+                    <li>{{ key }} - {{ value }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="{% static 'js/analysis_result.js' %}"></script>
