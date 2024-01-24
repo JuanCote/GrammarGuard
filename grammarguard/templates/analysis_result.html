@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
 
-<div class="mt-[1rem]"> 
-    <div class="grid grid-cols-4 gap-8 mt-[1rem]">
+<div class="mt-[1rem]">
+    <div class="grid grid-cols-1 min-[435px]:grid-cols-2 min-[725px]:grid-cols-3 min-[925px]:grid-cols-4 gap-8 mt-[1rem]">
         <div class="rounded-xl overflow-hidden border border-[#6545a3]">
             <div class="h-[3rem] flex items-center justify-center text-[#c3b4fc] text-xl font-semibold bg-[#a973fa]/20">
                 Word Count
@@ -46,6 +46,24 @@
                     <li>{{ key }} - {{ value }}</li>
                 {% endfor %}
             </ul>
+        </div>
+        <div class="rounded-xl relative border border-[#6545a3]">
+            <div id="fleschHelp" class="absolute transition-opacity ease-out duration-300 -top-[18rem] hidden opacity-0 flex-col text-sm justify-center text-center text-[#c3b4fc] flex items-center px-4 text bg-[#292150] py-4 w-full rounded-xl ">
+                The Flesch–Kincaid readability tests are readability tests designed to indicate how difficult a passage in English is to understand.
+                <p>90-100 Very Easy</p>
+                <p>80-89 Easy</p>
+                <p>70-79 Fairly Easy</p>
+                <p>60-69 Standard</p>
+                <p>50-59 Fairly Difficult</p>
+                <p>30-49 Difficult</p>
+                <p>0-29	Very Confusing</p>
+            </div>
+            <div id="fleschName" class="h-[3rem] rounded-t-xl flex flex-col underline cursor-pointer items-center text-center justify-center text-[#c3b4fc] text-base font-semibold bg-[#a973fa]/20">
+                Flesch–Kincaid readability tests
+            </div>
+            <div class="h-[6rem] text-4xl font-semibold rounded-b-xl text-[#c3b4fc] flex items-center justify-center bg-[#6b4e9c]/20">
+                {{ analysis_result.flesh_stat }}
+            </div>
         </div>
     </div>
 </div>

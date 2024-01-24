@@ -1,3 +1,4 @@
+from .textstat import get_flesh_stat
 from .spellchecker import count_word_frequency, spelling_check
 
 
@@ -11,6 +12,7 @@ def analyze_text(text: str) -> dict:
         "original_text": text,
         "highlighted_text": spelling_check(text),
         "word_frequency": count_word_frequency(text),
+        "flesh_stat": get_flesh_stat(text),
     }
     return analysis_result
 

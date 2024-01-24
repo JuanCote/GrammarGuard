@@ -1,3 +1,7 @@
+const fleschTitle = document.getElementById('fleschName')
+const fleschHelp = document.getElementById('fleschHelp')
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const highlightedWords = document.querySelectorAll('.highlighted-word');
 
@@ -30,6 +34,19 @@ function hideTooltip() {
     const tooltip = document.getElementById('tooltip');
     tooltip.classList.remove('opacity-100');
     setTimeout(() => {
-        tooltip.classList.add('opacity-0');
-    }, 300);
+        tooltip.classList.add('hidden');
+    }, 100);
 }
+
+
+fleschTitle.addEventListener('mouseover', () => {
+    fleschHelp.classList.remove('hidden')
+    fleschHelp.classList.add('opacity-100')
+})
+
+fleschTitle.addEventListener('mouseleave', () => {
+    fleschHelp.classList.remove('opacity-100')
+    setTimeout(() => {
+        fleschHelp.classList.add('hidden');
+    }, 100);
+})

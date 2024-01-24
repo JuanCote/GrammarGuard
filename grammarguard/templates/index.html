@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/scrollbar.css" %}" />
     <title>GrammarGuard</title>
 </head>
-<body class="h-[70rem] pt-[10rem] bg-gradient-to-b from-gray-900 to-[#300171]">
-    <div class="absolute w-full -z-10 h-full p-[4rem] opacity-[5%] bg-[url({% static 'images/background-pattern.svg' %})]"></div>
+<body class="h-[100vh] relative pt-[10rem] bg-gradient-to-b from-gray-900 to-[#300171]">
+    <div class="absolute w-full left-0 top-0 -z-10 h-full opacity-[5%] bg-[url({% static 'images/background-pattern.svg' %})]"></div>
     <header class='flex justify-center'>
         <h1 class="text-xl min-[310px]:text-2xl sm:text-3xl md:text-4xl font-semibold text-white">Welcome to <span class="text-[#6666ff]">GrammarGuard</span></h1>
     </header>
@@ -23,7 +23,7 @@
                     
                     <p id="tooltip" class="leading-[2.5rem] transition-opacity ease-out duration-300 opacity-0 absolute text-[#49d57d] h-[2.5rem] px-[10px] font-semibold flex items-center justify-center bg-[#3f1f71] rounded-xl hidden"></p>
                     {% if analysis_result %}
-                        <div contenteditable="true" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">{{ analysis_result.highlighted_text | safe }}</div>
+                        <div contenteditable="true" id="scrollUl" class="outline-none overflow-auto h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">{{ analysis_result.highlighted_text | safe }}</div>
                         <div class="mt-[0.5rem] flex justify-between mb-[1rem]">
                             <a href="/"><h2 class="text-[#e8ddff] easy-in duration-300 hover:scale-[1.1] text-lg font-bold cursor-pointer underline">Clear Text</h2></a>
                             <p class="text-white text-lg font-semibold">{{ analysis_result.words_count }} words</p>
