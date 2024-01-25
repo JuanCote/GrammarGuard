@@ -1,6 +1,12 @@
 const fleschTitle = document.getElementById('fleschName')
 const fleschHelp = document.getElementById('fleschHelp')
 
+const polarityName = document.getElementById('polarityName')
+const polarityHelp = document.getElementById('polarityHelp')
+
+const subjectivityName = document.getElementById('subjectivityName')
+const subjectivityHelp = document.getElementById('subjectivityHelp')
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const highlightedWords = document.querySelectorAll('.highlighted-word');
@@ -48,5 +54,31 @@ fleschTitle.addEventListener('mouseleave', () => {
     fleschHelp.classList.remove('opacity-100')
     setTimeout(() => {
         fleschHelp.classList.add('hidden');
+    }, 100);
+})
+
+
+polarityName.addEventListener('mouseover', () => {
+    polarityHelp.classList.remove('hidden')
+    polarityHelp.classList.add('opacity-100')
+})
+
+polarityName.addEventListener('mouseleave', () => {
+    polarityHelp.classList.remove('opacity-100')
+    setTimeout(() => {
+        polarityHelp.classList.add('hidden');
+    }, 100);
+})
+
+
+subjectivityName.addEventListener('mouseover', () => {
+    subjectivityHelp.classList.remove('hidden')
+    subjectivityHelp.classList.add('opacity-100')
+})
+
+subjectivityName.addEventListener('mouseleave', () => {
+    subjectivityHelp.classList.remove('opacity-100')
+    setTimeout(() => {
+        subjectivityHelp.classList.add('hidden');
     }, 100);
 })

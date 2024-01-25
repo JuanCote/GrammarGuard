@@ -1,8 +1,10 @@
+from .textblob import get_sentiment_analysis
 from .textstat import get_flesh_stat
 from .spellchecker import count_word_frequency, spelling_check
 
 
 def analyze_text(text: str) -> dict:
+    text_tone = get_sentiment_analysis(text)
     analysis_result = {
         "words_count": count_words(text),
         "letter_count": letter_count(text),
@@ -13,6 +15,8 @@ def analyze_text(text: str) -> dict:
         "highlighted_text": spelling_check(text),
         "word_frequency": count_word_frequency(text),
         "flesh_stat": get_flesh_stat(text),
+        "polarity": round(text_tone.polarity, 2),
+        "subjectivity": round(text_tone.subjectivity, 2),
     }
     return analysis_result
 

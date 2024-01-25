@@ -9,39 +9,36 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/scrollbar.css" %}" />
     <title>GrammarGuard</title>
 </head>
-<body class="h-[100vh] relative pt-[10rem] bg-gradient-to-b from-gray-900 to-[#300171]">
-    <div class="absolute w-full left-0 top-0 -z-10 h-full opacity-[5%] bg-[url({% static 'images/background-pattern.svg' %})]"></div>
-    <header class='flex justify-center'>
-        <h1 class="text-xl min-[310px]:text-2xl sm:text-3xl md:text-4xl font-semibold text-white">Welcome to <span class="text-[#6666ff]">GrammarGuard</span></h1>
-    </header>
-    <main class="max-w-[1120px] px-[20px] mx-auto">
-        <div class="mt-[1rem]">
-            <h1 class="text-2xl font-semibold mb-[0.5rem] text-white">Your analysed text:</h1>
-            <form action="{% url 'analysis_results' %}" method="post">
-                <div class="flex flex-col">
-                    {% csrf_token %}
-                    
-                    <p id="tooltip" class="leading-[2.5rem] transition-opacity ease-out duration-300 opacity-0 absolute text-[#49d57d] h-[2.5rem] px-[10px] font-semibold flex items-center justify-center bg-[#3f1f71] rounded-xl hidden"></p>
-                    {% if analysis_result %}
-                        <div contenteditable="true" id="scrollUl" class="outline-none overflow-auto h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">{{ analysis_result.highlighted_text | safe }}</div>
-                        <div class="mt-[0.5rem] flex justify-between mb-[1rem]">
-                            <a href="/"><h2 class="text-[#e8ddff] easy-in duration-300 hover:scale-[1.1] text-lg font-bold cursor-pointer underline">Clear Text</h2></a>
-                            <p class="text-white text-lg font-semibold">{{ analysis_result.words_count }} words</p>
-                        </div>
-                    {% else %}
-                        <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">Try the tool out with this paragraph of text here, by pressing Analyse below. Or you can replace this whole text with some text of your choosing. Simply paste any text into this box, or else type it in yourself! 
-
-Text Inspector gives you different scores for Writing texts (student writing) and Reading and Listening texts (e.g. texts designed for classroom reading or listening). The default mode is Writing, so if your text is for Reading or Listening, please go to Analyse on the top menu to change the mode and get accurate calcula
-
-Look at our Subscriptions section for special offers and discounts.</textarea>
-                        <input type="submit" class="text-[#243046] mt-[1rem] w-[10rem] h-[3rem] rounded-full bg-[#e8ddff] ease-out duration-300 hover:scale-[1.05] hover:bg-[#6666ff] hover:text-white text-xl font-semibold mx-auto cursor-pointer" value="Analyze">
-                    {% endif %}
-                </div>
-            </form>
-        </div>
-        {% block content %} {% endblock %}
-    </main>
-    <footer>
-    </footer>
+<body class="h-[100vh] relative flex flex-col justify-center bg-gradient-to-b from-gray-900 to-[#300171]">
+    <div>
+        <div class="absolute w-full left-0 top-0 -z-10 h-full opacity-[5%] bg-[url({% static 'images/background-pattern.svg' %})]"></div>
+        <header class='flex justify-center'>
+            <h1 class="text-xl min-[310px]:text-2xl sm:text-3xl md:text-4xl font-semibold text-white">Welcome to <span class="text-[#6666ff]">GrammarGuard</span></h1>
+        </header>
+        <main class="max-w-[1120px] px-[20px] mx-auto">
+            <div class="mt-[1rem]">
+                <h1 class="text-2xl font-semibold mb-[0.5rem] text-white">Your analysed text:</h1>
+                <form action="{% url 'analysis_results' %}" method="post">
+                    <div class="flex flex-col">
+                        {% csrf_token %}
+                        <p id="tooltip" class="leading-[2.5rem] transition-opacity ease-out duration-300 opacity-0 absolute text-[#49d57d] h-[2.5rem] px-[10px] font-semibold flex items-center justify-center bg-[#3f1f71] rounded-xl hidden"></p>
+                        {% if analysis_result %}
+                            <div contenteditable="true" id="scrollUl" class="outline-none overflow-auto h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">{{ analysis_result.highlighted_text | safe }}</div>
+                            <div class="mt-[0.5rem] flex justify-between mb-[1rem]">
+                                <a href="/"><h2 class="text-[#e8ddff] easy-in duration-300 hover:scale-[1.1] text-lg font-bold cursor-pointer underline">Clear Text</h2></a>
+                                <p class="text-white text-lg font-semibold">{{ analysis_result.words_count }} words</p>
+                            </div>
+                        {% else %}
+                            <textarea required minlength="10" name="textarea" id="textInput" class="outline-none h-[15rem] bg-[#7a62f6] bg-opacity-30 text-white font-semibold rounded-lg outline-offset-0 ease-out duration-300 border border-[#563a89] w-full p-3 outline-4 focus:outline-[#50457b]">Welcome to our text analysis tool! Whether you're a writer, student, or just curious about your text, this tool provides insightful analysis at your fingertips. Simply paste or type your text into the box and hit 'Analyze'. Discover the word count, sentence count, character count (with and without spaces), and the frequency of words used. We also provide the Flesch–Kincaid readability score, giving you an idea of how easy or difficult your text is to read. Plus, our tool evaluates the polarity and subjectivity of your text, shedding light on its emotional tone and objectivity. And don't worry about typos - our built-in spell checker offers suggestions for corrections right in your text. Explore your writing in a whole new way with our comprehensive text analysis tool!</textarea>
+                            <input type="submit" class="text-[#243046] mt-[1rem] w-[10rem] h-[3rem] rounded-full bg-[#e8ddff] ease-out duration-300 hover:scale-[1.05] hover:bg-[#6666ff] hover:text-white text-xl font-semibold mx-auto cursor-pointer" value="Analyze">
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+            {% block content %} {% endblock %}
+        </main>
+        <footer>
+        </footer>
+    </div>    
 </body>
 </html>

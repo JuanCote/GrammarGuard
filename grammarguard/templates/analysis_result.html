@@ -65,6 +65,28 @@
                 {{ analysis_result.flesh_stat }}
             </div>
         </div>
+        <div class="rounded-xl relative border border-[#6545a3]">
+            <div id="polarityHelp" class="absolute transition-opacity ease-out duration-300 -top-[12rem] hidden opacity-0 flex-col text-sm justify-center text-center text-[#c3b4fc] flex items-center px-4 text bg-[#292150] py-4 w-full rounded-xl ">
+                "Polarity" in text analysis refers to the assessment of emotional sentiment. A value close to -1.0 indicates negative emotions, while a value near 1.0 indicates positive emotions. A value around 0 denotes neutrality.
+            </div>
+            <div class="h-[3rem] rounded-t-xl flex flex-col items-center text-center justify-center text-[#c3b4fc] text-base font-semibold bg-[#a973fa]/20">
+                <p id="polarityName" class="inline-block underline cursor-pointer">Polarity</p>
+            </div>
+            <div class="h-[6rem] text-4xl font-semibold rounded-b-xl text-[#c3b4fc] flex items-center justify-center bg-[#6b4e9c]/20">
+                {{ analysis_result.polarity }}
+            </div>
+        </div>
+        <div class="rounded-xl relative border border-[#6545a3]">
+            <div id="subjectivityHelp" class="absolute transition-opacity ease-out duration-300 -top-[15rem] hidden opacity-0 flex-col text-sm justify-center text-center text-[#c3b4fc] flex items-center px-4 text bg-[#292150] py-4 w-full rounded-xl ">
+                "Subjectivity" in text analysis refers to the extent to which the text expresses opinions, feelings, or beliefs, rather than factual information. A value close to 0.0 indicates that the text is more objective, while a value close to 1.0 suggests that the text is highly subjective or opinionated.
+            </div>
+            <div class="h-[3rem] rounded-t-xl flex flex-col items-center text-center justify-center text-[#c3b4fc] text-base font-semibold bg-[#a973fa]/20">
+                <p id="subjectivityName" class="inline-block underline cursor-pointer">Subjectivity</p>
+            </div>
+            <div class="h-[6rem] text-4xl font-semibold rounded-b-xl text-[#c3b4fc] flex items-center justify-center bg-[#6b4e9c]/20">
+                {{ analysis_result.subjectivity }}
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="{% static 'js/analysis_result.js' %}"></script>
